@@ -29,7 +29,7 @@ while read -r file; do
     ffmpeg -y -i "$file" -an -vcodec copy "$DEST_DIR/tmp.jpg" 2>/dev/null
     if [ -f "$DEST_DIR/tmp.jpg" ]; then
         # convert "$DEST_DIR/tmp.jpg" -resize 200x200 -colorspace Gray "$COVER"
-        convert "$DEST_DIR/tmp.jpg" -resize 200x200 "$COVER"
+        convert "$DEST_DIR/tmp.jpg" -resize 196x196 "$COVER"
         echo "📁 Saved: $COVER"
         rm "$DEST_DIR/tmp.jpg"
     else

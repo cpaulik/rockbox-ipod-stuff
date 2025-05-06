@@ -17,6 +17,7 @@
 %Fl(5,29-KodeMono-SemiBold.fnt)
 %Fl(6,07-LanaPixel.fnt)
 %Fl(7,10-Sazanami-Mincho.fnt)
+%Fl(8,20-digital7mono.fnt)
 #
 #
 #__Preload Images
@@ -31,6 +32,8 @@
 %xl(A,album_icon.bmp,0,2,2)
 %xl(O,OffOn.bmp,11,0,2)
 %xl(PM,peak_background.bmp)
+%xl(PF,peak_fill.bmp)
+%xl(SB,small_bar.bmp)
 #
 #__Cover Art Preload
 %Cl(0,0,196,196,c,b)
@@ -41,10 +44,6 @@
 #__Clear Screen
 %V(0,0,320,240,-)
 #
-# #__Playtime Text
-# %V(20,18,64,24,4)
-# %ac%pc%Vs(invert)
-# #%ac-%pr%Vs(invert)
 # #
 # %?mh<%Vd(hold)|%Vd(fileInfo)>
 # %Vl(fileInfo,86,18,110,24,4)
@@ -65,10 +64,6 @@
 # #__Repeat
 # %V(203,33,22,11,2)
 # %?mm<R%xd(O)|R%xd(O,2)|R%xd(O,2)|R%xd(O,2)|A%xd(O,2)>
-# #
-# #__Volume BAR
-# %V(-92,18,72,9,-)
-# %pv(0,0,-,-,BB,backdrop,BBB)
 # #
 # #__Battery/Vol Screen Selector
 # %?mv(3.5)<%Vd(volChange)|%?bp<%Vd(batCharge)|%Vd(bat)>>
@@ -97,7 +92,15 @@
 #__Cover Art
 %Vl(withCover,62,4,196,196,6)
 %Cd
+
+#__Volume BAR and TEXT
+%V(4,15,19,185,-)
+%pv(0,0,-,-,SB,vertical)
+%V(4,4,19,11,7)
+%ac%pv%Vs(invert)
 #
+%Vl(withCover,28,15,29,185,6)
+%pL(0,0,-,-,PM,backdrop,PF,vertical)
 
 #__Peak Meter Bars w/ cover has to be from -40 to 0dB
 # 0db line at 26
@@ -105,82 +108,94 @@
 # -20 dB line at 113
 # -30 dB line at 156
 # -40 dB line at 200
-%Vl(withCover,27,26,30,174,6)
-%pL(0,0,-,-,image,PM,vertical)
-%Vl(withCover,8,4,20,15,6)
-dB
-%Vl(withCover,13,19,19,15,6)
-0
-%dr(9,8,2,1)
-%Vl(withCover,4,62,28,15,6)
--10
-%dr(18,8,2,1)
-%Vl(withCover,2,106,30,15,6)
--20
-%dr(20,8,2,1)
-%Vl(withCover,2,149,30,15,6)
--30
-%dr(20,8,2,1)
-%Vl(withCover,2,191,30,15,6)
--40
-%dr(20,8,2,1)
+# %Vl(withCover,8,4,20,15,6)
+# dB
+# %Vl(withCover,13,19,19,15,6)
+# 0
+# %dr(9,8,2,1)
+# %Vl(withCover,4,62,28,15,6)
+# -10
+# %dr(18,8,2,1)
+# %Vl(withCover,2,106,30,15,6)
+# -20
+# %dr(20,8,2,1)
+# %Vl(withCover,2,149,30,15,6)
+# -30
+# %dr(20,8,2,1)
+# %Vl(withCover,2,191,30,15,6)
+# -40
+# %dr(20,8,2,1)
 
-%Vl(withCover,27,4,30,17,7)
+%Vl(withCover,28,4,29,18,7)
 %acL%Vs(invert)
 
 #__Peak Meter Bars w/ cover
-%Vl(withCover,263,26,30,174,6)
-%pR(0,0,-,-,image,PM,vertical)
+%Vl(withCover,263,15,29,185,6)
+%pR(0,0,-,-,image,PM,backdrop,PF,vertical)
 
-%Vl(withCover,298,4,20,15,6)
-dB
-%Vl(withCover,298,19,19,15,6)
-0
-%dr(9,8,2,1)
-%Vl(withCover,298,62,22,15,6)
--10
-%dr(18,8,2,1)
-%Vl(withCover,298,106,22,15,6)
--20
-%dr(20,8,2,1)
-%Vl(withCover,298,149,22,15,6)
--30
-%dr(20,8,2,1)
-%Vl(withCover,298,191,22,15,6)
--40
-%dr(20,8,2,1)
+# %Vl(withCover,298,4,20,15,6)
+# dB
+# %Vl(withCover,298,19,19,15,6)
+# 0
+# %dr(9,8,2,1)
+# %Vl(withCover,298,62,22,15,6)
+# -10
+# %dr(18,8,2,1)
+# %Vl(withCover,298,106,22,15,6)
+# -20
+# %dr(20,8,2,1)
+# %Vl(withCover,298,149,22,15,6)
+# -30
+# %dr(20,8,2,1)
+# %Vl(withCover,298,191,22,15,6)
+# -40
+# %dr(20,8,2,1)
 
-%Vl(withCover,263,4,30,17,7)
+%Vl(withCover,263,4,29,17,7)
 %acR%Vs(invert)
 
-#__Peak Meter Bars w/o cover
-%Vl(woCover,20,120,280,30,6)
-%pm
-#__Peak Meter Bars w/o cover
-%Vl(woCover,20,160,280,30,6)
-%pm
+#__Battery BAR and TEXT
+%V(296,15,19,185,-)
+%bl(0,0,-,-,SB,vertical)
+%V(296,4,19,17,7)
+%ac%bl%Vs(invert)
 
 #__Artist
-%V(63,204,196,32,3)
+%V(62,204,196,32,3)
 %al%s%?ia<%ia|UNKNOWN>
 #
 #__Track Title
-%V(63,220,196,16,2)
+%V(62,220,196,16,2)
 %al%s%?id<%t(12)%?it<%it|%fn>;%t(12)%id|%?it<%it|%fn>>
 
 #__Track Progress Bar
 #__Line
-%V(63,236,196,1,-)
+%V(62,236,196,1,-)
 %dr(0,0,196,1)
 #
 #__Slider
-%V(63,237,196,2,-)
+%V(62,237,196,2,-)
 %pb(0,0,196,2,PBB,slider,PB)
 #
 #__Line
-%V(63,239,196,1,-)
+%V(62,239,196,1,-)
 %dr(0,0,196,1)
 #
+#__Playtime Text
+%V(263,232,29,8,7)
+%ac%pt
+%V(28,232,29,8,7)
+%ac%pc
+
+# Codec
+%Vl(withCover,263,204,29,17,7)
+%ac%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>%Vs(invert)
+
+# Bitrate
+%Vl(withCover,263,217,29,10,7)
+%ac%fbk%Vs(invert)
+
+
 
 #__Next Up Selector
 %?pE(20)<%?pS(8)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
