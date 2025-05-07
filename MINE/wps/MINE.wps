@@ -30,9 +30,9 @@
 %xl(PM,peak_background.bmp)
 %xl(PF,peak_fill.bmp)
 %xl(SB,small_bar.bmp)
-%xl(LRBACK,lr_back.bmp)
 %xl(INFOBACK,info_back.bmp)
-%xl(VOLBATBACK,vol_bat_back.bmp)
+%xl(VOLSYM,vol_symbol.bmp)
+%xl(BATSYM,bat_symbol.bmp)
 #
 #__Cover Art Preload
 %Cl(0,0,196,196,c,b)
@@ -42,7 +42,121 @@
 #
 #__Clear Screen
 %V(0,0,320,240,-)
+#__Cover Selector
+%?C<%Vd(withCover)|%Vd(woCover)>
 #
+#
+#__Cover Art
+%Vl(withCover,62,4,196,196,6)
+%Cd
+
+#
+%Vl(withCover,28,15,29,185,6)
+%pL(0,0,-,-,PM,backdrop,PF,vertical)
+
+# LEFT
+%Vl(withCover,28,0,29,18,9)
+%acL
+
+#__Peak Meter Bars w/ cover
+%Vl(withCover,263,15,29,185,6)
+%pR(0,0,-,-,image,PM,backdrop,PF,vertical)
+
+# RIGHT
+%Vl(withCover,263,0,29,18,9)
+%acR
+# %xd(LRBACK)
+
+#__Artist
+%V(62,199,196,32,9)
+%al%s%?ia<%ia|UNKNOWN>
+#
+#__Track Title
+%V(62,215,196,16,9)
+%al%s%?id<%t(12)%?it<%it|%fn>;%t(12)%id|%?it<%it|%fn>>
+
+#__Track Progress Bar
+#__Line
+%V(56,235,207,1,-)
+%dr(0,0,207,1)
+#
+#__Slider
+%V(56,236,207,3,-)
+%pb(0,0,207,3,PBB,slider,PB)
+#
+#__Line
+%V(56,239,207,1,-)
+%dr(0,0,207,1)
+#
+#__Playtime Text
+%V(263,230,53,10,8)
+%ac%pt
+%xd(INFOBACK)
+%V(4,230,53,10,8)
+%ac%pc
+%xd(INFOBACK)
+
+# Clock
+%Vl(withCover,4,204,53,10,8)
+%ac%cH:%cM
+%xd(INFOBACK)
+
+# Track Number
+%Vl(withCover,4,217,53,10,8)
+%ac%in/%pe
+%xd(INFOBACK)
+
+# Codec
+%Vl(withCover,263,204,53,10,8)
+%ac%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>
+%xd(INFOBACK)
+
+# Bitrate
+%Vl(withCover,263,217,53,10,8)
+%ac%fbk
+%xd(INFOBACK)
+
+#Vol Screen Selector
+%?mv(2)<%Vd(volChange)|%Vd(volNoChange)>
+
+#__Volume BAR and TEXT
+%V(4,15,19,185,-)
+%pv(0,0,-,-,SB,vertical)
+%Vl(volNoChange,4,5,19,10,-)
+%xd(VOLSYM)
+%Vl(volChange,0,0,27,19,9)
+%ac%pv
+
+#__Battery BAR and TEXT
+%V(296,15,19,185,-)
+%bl(0,0,-,-,SB,vertical)
+%V(296,5,19,10,-)
+%xd(BATSYM)
+
+
+
+#__Next Up Selector
+%?pE(20)<%?pS(8)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
+#
+#__Play/Pause Icons
+# %V(70,190,21,11,-)
+# %xd(PBK,%mp)
+# #__Storage LED
+# %V(20,8,11,11,2)
+# %xd(X,%lh)
+#
+#
+# #__Playlist position/ File info / Playcount
+# %Vl(curInfo,43,211,257,-,3)
+# %al%pt%?and(%if(%rp,=,0),%if(%rr,=,0),%if(%ra,=,0))<%ar%pp/%pe|%ac%pp/%pe%ar%rpx %rr %| %ra>
+#
+#__Next Up
+# %Vl(nextInfo,42,211,22,20,3)
+# %ac→%Vs(invert)
+# %Vl(nextInfo,64,211,235,20,3)
+# %ac%s%?Ia<%Ia%?It< - %It>|%Fn> %Vs(invert)
+#
+
 # #
 # %?mh<%Vd(hold)|%Vd(fileInfo)>
 # %Vl(fileInfo,86,18,110,24,4)
@@ -81,117 +195,6 @@
 # %V(20,92,13,17,-)
 # %t(12)%xd(Aa);%t(12)%?id<%xd(Ab)|%xd(Aa)>
 # #
-#__Cover Selector
-%?C<%Vd(withCover)|%Vd(woCover)>
-#
 
 
 
-
-#__Cover Art
-%Vl(withCover,62,4,196,196,6)
-%Cd
-
-#__Volume BAR and TEXT
-%V(4,15,19,185,-)
-%pv(0,0,-,-,SB,vertical)
-%V(4,4,19,10,8)
-%ac%pv
-%xd(VOLBATBACK)
-#
-%Vl(withCover,28,15,29,185,6)
-%pL(0,0,-,-,PM,backdrop,PF,vertical)
-
-# LEFT
-%Vl(withCover,28,4,29,18,8)
-%acL
-%xd(LRBACK)
-
-#__Peak Meter Bars w/ cover
-%Vl(withCover,263,15,29,185,6)
-%pR(0,0,-,-,image,PM,backdrop,PF,vertical)
-
-# RIGHT
-%Vl(withCover,263,4,29,10,8)
-%acR
-%xd(LRBACK)
-
-#__Battery BAR and TEXT
-%V(296,15,19,185,-)
-%bl(0,0,-,-,SB,vertical)
-%V(296,4,19,10,8)
-%ac%bl
-%xd(VOLBATBACK)
-
-#__Artist
-%V(62,199,196,32,9)
-%al%s%?ia<%ia|UNKNOWN>
-#
-#__Track Title
-%V(62,215,196,16,9)
-%al%s%?id<%t(12)%?it<%it|%fn>;%t(12)%id|%?it<%it|%fn>>
-
-#__Track Progress Bar
-#__Line
-%V(56,235,207,1,-)
-%dr(0,0,207,1)
-#
-#__Slider
-%V(56,236,207,3,-)
-%pb(0,0,207,3,PBB,slider,PB)
-#
-#__Line
-%V(56,239,207,1,-)
-%dr(0,0,207,1)
-#
-#__Playtime Text
-%V(263,230,53,10,8)
-%ac%pt
-%xd(INFOBACK)
-%V(4,230,53,10,8)
-%ac%pc
-%xd(INFOBACK)
-
-# Clock
-%Vl(withCover,4,204,53,10,8)
-%ac%cH:%cM
-%xd(INFOBACK)
-
-# Track Number
-%Vl(withCover,4,217,53,10,8)
-%ac%in OF %pe
-%xd(INFOBACK)
-
-# Codec
-%Vl(withCover,263,204,53,10,8)
-%ac%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>
-%xd(INFOBACK)
-
-# Bitrate
-%Vl(withCover,263,217,53,10,8)
-%ac%fbk
-%xd(INFOBACK)
-
-
-
-#__Next Up Selector
-%?pE(20)<%?pS(8)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
-#
-#__Play/Pause Icons
-# %V(70,190,21,11,-)
-# %xd(PBK,%mp)
-# #__Storage LED
-# %V(20,8,11,11,2)
-# %xd(X,%lh)
-#
-#
-# #__Playlist position/ File info / Playcount
-# %Vl(curInfo,43,211,257,-,3)
-# %al%pt%?and(%if(%rp,=,0),%if(%rr,=,0),%if(%ra,=,0))<%ar%pp/%pe|%ac%pp/%pe%ar%rpx %rr %| %ra>
-#
-#__Next Up
-# %Vl(nextInfo,42,211,22,20,3)
-# %ac→%Vs(invert)
-# %Vl(nextInfo,64,211,235,20,3)
-# %ac%s%?Ia<%Ia%?It< - %It>|%Fn> %Vs(invert)
-#
