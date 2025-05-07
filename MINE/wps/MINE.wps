@@ -26,15 +26,13 @@
 %xl(PBB,pb_back.bmp,0,0)
 %xl(PB,pb.bmp,0,0)
 %xl(PBK,playback_status.bmp,1,1,5)
-%xl(BBB,bb_back.bmp,0,0)
-%xl(BB,bb.bmp,0,0)
-%xl(X,seeking_icon.bmp,0,0)
-%xl(Q,eq_icon.bmp,0,0)
 %xl(A,album_icon.bmp,0,2,2)
-%xl(O,OffOn.bmp,11,0,2)
 %xl(PM,peak_background.bmp)
 %xl(PF,peak_fill.bmp)
 %xl(SB,small_bar.bmp)
+%xl(LRBACK,lr_back.bmp)
+%xl(INFOBACK,info_back.bmp)
+%xl(VOLBATBACK,vol_bat_back.bmp)
 #
 #__Cover Art Preload
 %Cl(0,0,196,196,c,b)
@@ -97,29 +95,33 @@
 #__Volume BAR and TEXT
 %V(4,15,19,185,-)
 %pv(0,0,-,-,SB,vertical)
-%V(4,4,19,11,8)
-%ac%pv%Vs(invert)
+%V(4,4,19,10,8)
+%ac%pv
+%xd(VOLBATBACK)
 #
 %Vl(withCover,28,15,29,185,6)
 %pL(0,0,-,-,PM,backdrop,PF,vertical)
 
 # LEFT
 %Vl(withCover,28,4,29,18,8)
-%acL%Vs(invert)
+%acL
+%xd(LRBACK)
 
 #__Peak Meter Bars w/ cover
 %Vl(withCover,263,15,29,185,6)
 %pR(0,0,-,-,image,PM,backdrop,PF,vertical)
 
 # RIGHT
-%Vl(withCover,263,4,29,17,8)
-%acR%Vs(invert)
+%Vl(withCover,263,4,29,10,8)
+%acR
+%xd(LRBACK)
 
 #__Battery BAR and TEXT
 %V(296,15,19,185,-)
 %bl(0,0,-,-,SB,vertical)
-%V(296,4,19,17,8)
-%ac%bl%Vs(invert)
+%V(296,4,19,10,8)
+%ac%bl
+%xd(VOLBATBACK)
 
 #__Artist
 %V(62,199,196,32,9)
@@ -143,26 +145,32 @@
 %dr(0,0,207,1)
 #
 #__Playtime Text
-%V(263,230,52,10,8)
-%ac%pt%Vs(invert)
+%V(263,230,53,10,8)
+%ac%pt
+%xd(INFOBACK)
 %V(4,230,53,10,8)
-%ac%pc%Vs(invert)
+%ac%pc
+%xd(INFOBACK)
 
 # Clock
 %Vl(withCover,4,204,53,10,8)
-%ac%cH:%cM%Vs(invert)
+%ac%cH:%cM
+%xd(INFOBACK)
 
 # Track Number
 %Vl(withCover,4,217,53,10,8)
-%ac%in OF %pe%Vs(invert)
+%ac%in OF %pe
+%xd(INFOBACK)
 
 # Codec
-%Vl(withCover,263,204,52,10,8)
-%ac%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>%Vs(invert)
+%Vl(withCover,263,204,53,10,8)
+%ac%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>
+%xd(INFOBACK)
 
 # Bitrate
-%Vl(withCover,263,217,52,10,8)
-%ac%fbk%Vs(invert)
+%Vl(withCover,263,217,53,10,8)
+%ac%fbk
+%xd(INFOBACK)
 
 
 
