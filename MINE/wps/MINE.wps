@@ -11,7 +11,7 @@
 %wd
 #
 #__Preload Fonts
-%Fl(2,12-KodeMono-SemiBold.fnt)
+%Fl(2,20-digital7mono.fnt)
 %Fl(3,15-KodeMono-SemiBold.fnt)
 %Fl(4,22-KodeMono-SemiBold.fnt)
 %Fl(5,29-KodeMono-SemiBold.fnt)
@@ -29,7 +29,8 @@
 %xl(PM,peak_background.bmp)
 %xl(PF,peak_fill.bmp)
 %xl(SB,small_bar.bmp)
-%xl(INFOBACK,info_back.bmp)
+%xl(INFOBACKL,info_back_left.bmp)
+%xl(INFOBACKR,info_back_right.bmp)
 %xl(VOLSYM,vol_symbol.bmp)
 %xl(BATSYM,bat_symbol.bmp)
 %xl(STOP,stop.bmp)
@@ -53,9 +54,9 @@
 #
 #__Cover Art
 %Vl(withCover,67,186,9,9,-)
-%?mp<%t(2)%xd(STOP);%xd(STOPI)|%t(4)%xd(PLAY);%xd(PLAYI)|%t(1)%xd(PAUSE);%xd(PAUSEI)>
+%?mp<%t(2)%xd(STOP);%xd(STOPI)|%t(4)%xd(PLAY);%t(4)%xd(PLAYI)|%t(1)%xd(PAUSE);%xd(PAUSEI)>
 %Vl(withCover,62,4,196,196,6)
-%?mp<%t(2)%Cd;%Cd|%t(4)%Cd;%Cd|%t(1)%Cd;%Cd>
+%?mp<%t(2)%Cd;%Cd|%t(4)%Cd;%t(4)%Cd|%t(1)%Cd;%Cd>
 
 # LEFT
 %Vl(withCover,28,15,29,185,6)
@@ -87,32 +88,27 @@
 %pb(0,0,207,3,PBB,backdrop,PBD,slider,PB)
 #
 #__Playtime Text
-%V(263,230,53,10,8)
-%ac%pt
-%xd(INFOBACK)
-%V(4,230,53,10,8)
-%ac%pc
-%xd(INFOBACK)
+%V(263,205,53,35,2)
+%xd(INFOBACKR)
+%V(276,224,40,15,2)
+%al%pr
+%V(4,224,40,15,2)
+%ar%pc
+%V(4,205,53,35,2)
+%xd(INFOBACKL)
 
 # Clock
-%Vl(withCover,4,204,53,10,8)
-%ac%cH:%cM
-%xd(INFOBACK)
+# %Vl(withCover,4,204,53,10,8)
+# %ac%cH:%cM
 
 # Track Number
-%Vl(withCover,4,217,53,10,8)
-%ac%in/%pe
-%xd(INFOBACK)
+%Vl(withCover,4,206,40,15,2)
+%ar%in/%pe
 
-# Codec
-%Vl(withCover,263,204,53,10,8)
-%ac%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>
-%xd(INFOBACK)
+# Codec & Bitrate
+%Vl(withCover,276,206,40,15,2)
+%al%t(8)%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>;%t(8)%al%fbk
 
-# Bitrate
-%Vl(withCover,263,217,53,10,8)
-%ac%fbk
-%xd(INFOBACK)
 
 #Vol Screen Selector
 %?mv(2)<%Vd(volChange)|%Vd(volNoChange)>
