@@ -22,17 +22,21 @@
 #
 #
 #__Preload Images
-%xl(P,bb_rbd_123.bmp,1,2)
 %xl(PBB,pb_back.bmp,0,0)
 %xl(PB,pb.bmp,0,0)
 %xl(PBK,playback_status.bmp,1,1,5)
-%xl(A,album_icon.bmp,0,2,2)
 %xl(PM,peak_background.bmp)
 %xl(PF,peak_fill.bmp)
 %xl(SB,small_bar.bmp)
 %xl(INFOBACK,info_back.bmp)
 %xl(VOLSYM,vol_symbol.bmp)
 %xl(BATSYM,bat_symbol.bmp)
+%xl(STOP,stop.bmp)
+%xl(STOPI,stop_inverted.bmp)
+%xl(PLAY,play.bmp)
+%xl(PLAYI,play_inverted.bmp)
+%xl(PAUSE,pause.bmp)
+%xl(PAUSEI,pause_inverted.bmp)
 #
 #__Cover Art Preload
 %Cl(0,0,196,196,c,b)
@@ -47,10 +51,12 @@
 #
 #
 #__Cover Art
+%Vl(withCover,67,186,9,9,-)
+%?mp<%t(2)%xd(STOP);%xd(STOPI)|%t(4)%xd(PLAY);%xd(PLAYI)|%t(1)%xd(PAUSE);%xd(PAUSEI)>
 %Vl(withCover,62,4,196,196,6)
-%Cd
+%?mp<%t(2)%Cd;%Cd|%t(4)%Cd;%Cd|%t(1)%Cd;%Cd>
 
-#
+# LEFT
 %Vl(withCover,28,15,29,185,6)
 %pL(0,0,-,-,PM,backdrop,PF,vertical)
 
@@ -68,7 +74,7 @@
 # %xd(LRBACK)
 
 #__Artist
-%V(62,199,196,32,9)
+%V(62,200,196,32,9)
 %al%s%?ia<%ia|UNKNOWN>
 #
 #__Track Title
@@ -137,18 +143,6 @@
 
 #__Next Up Selector
 %?pE(20)<%?pS(8)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
-#
-#__Play/Pause Icons
-# %V(70,190,21,11,-)
-# %xd(PBK,%mp)
-# #__Storage LED
-# %V(20,8,11,11,2)
-# %xd(X,%lh)
-#
-#
-# #__Playlist position/ File info / Playcount
-# %Vl(curInfo,43,211,257,-,3)
-# %al%pt%?and(%if(%rp,=,0),%if(%rr,=,0),%if(%ra,=,0))<%ar%pp/%pe|%ac%pp/%pe%ar%rpx %rr %| %ra>
 #
 #__Next Up
 # %Vl(nextInfo,42,211,22,20,3)
