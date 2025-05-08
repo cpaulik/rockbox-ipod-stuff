@@ -9,7 +9,7 @@ IPOD_MOUNT="/Volumes/IPOD/Music"               # Mount point for your iPod
 mkdir -p "$BW_DIR"
 
 # Step 1: Extract and resize grayscale folder.jpg into BW_DIR
-find "$MUSIC_DIR" -type f \( -iname "*.mp3" -o -iname "*.m4a" -o -iname "*.flac" \) | \
+find "$MUSIC_DIR" -type f \( -iname "*.mp3" -o -iname "*.m4a" -o -iname "*.ogg" -o -iname "*.flac" \) | \
 while read -r file; do
     REL_PATH="${file#$MUSIC_DIR/}"
     ALBUM_DIR="$(dirname "$REL_PATH")"
