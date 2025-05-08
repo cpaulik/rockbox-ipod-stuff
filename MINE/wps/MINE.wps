@@ -59,19 +59,19 @@
 %?mp<%t(2)%Cd;%Cd|%t(4)%Cd;%t(4)%Cd|%t(1)%Cd;%Cd>
 
 # LEFT
-%Vl(withCover,28,15,29,185,6)
+%V(28,15,29,185,6)
 %pL(0,0,-,-,PM,backdrop,PF,vertical)
 
 # LEFT
-%Vl(withCover,28,0,29,18,9)
+%V(28,0,29,18,9)
 %acL
 
 #__Peak Meter Bars w/ cover
-%Vl(withCover,263,15,29,185,6)
+%V(263,15,29,185,6)
 %pR(0,0,-,-,image,PM,backdrop,PF,vertical)
 
 # RIGHT
-%Vl(withCover,263,0,29,18,9)
+%V(263,0,29,18,9)
 %acR
 # %xd(LRBACK)
 
@@ -80,7 +80,7 @@
 %al%s%?ia<%ia|UNKNOWN>
 #
 #__Track Title
-%V(62,215,196,16,9)
+%V(62,217,196,16,9)
 %al%s%?id<%t(12)%?it<%it|%fn>;%t(12)%id|%?it<%it|%fn>>
 
 #__Track Progress Bar Slider
@@ -102,11 +102,11 @@
 # %ac%cH:%cM
 
 # Track Number
-%Vl(withCover,4,206,40,15,2)
+%V(4,206,40,15,2)
 %ar%in/%pe
 
 # Codec & Bitrate
-%Vl(withCover,276,206,40,15,2)
+%V(276,206,40,15,2)
 %al%t(8)%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>;%t(8)%al%fbk
 
 
