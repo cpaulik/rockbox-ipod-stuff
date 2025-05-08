@@ -83,23 +83,19 @@
 #__Playtime Text
 %V(263,205,53,35,2)
 %xd(INFOBACKR)
-%V(276,224,40,15,2)
+%V(274,224,42,15,2)
 %al%pr
-%V(4,224,40,15,2)
+%V(4,224,42,15,2)
 %ar%pc
 %V(4,205,53,35,2)
 %xd(INFOBACKL)
 
-# Clock
-# %Vl(withCover,4,204,53,10,8)
-# %ac%cH:%cM
-
 # Track Number
-%V(4,206,40,15,2)
+%V(4,206,42,15,2)
 %ar%in/%pe
 
 # Codec & Bitrate
-%V(276,206,40,15,2)
+%V(274,206,42,15,2)
 %al%t(8)%?fc<MP1|MP2|MP3|AIFF|WAV|VORBIS|FLAC|MPC|AC3|WAVPAC|ALAC|AAC|SHORTEN|SID|ADX|NSF|SPEEX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|WAVE64|TRUEAUD|WMAVOX|MUSEPAK|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>;%t(8)%al%fbk
 
 
@@ -119,57 +115,3 @@
 %bl(0,0,-,-,SB,vertical)
 %V(296,5,19,10,-)
 %xd(BATSYM)
-
-
-
-#__Next Up Selector
-%?pE(20)<%?pS(8)<%Vd(curInfo)|%Vd(nextInfo)>|%Vd(curInfo)>
-#
-#__Next Up
-# %Vl(nextInfo,42,211,22,20,3)
-# %ac→%Vs(invert)
-# %Vl(nextInfo,64,211,235,20,3)
-# %ac%s%?Ia<%Ia%?It< - %It>|%Fn> %Vs(invert)
-#
-
-# #
-# %?mh<%Vd(hold)|%Vd(fileInfo)>
-# %Vl(fileInfo,86,18,110,24,4)
-# %t(8)%ac%s%?if(%ss(0, 7, %fs), =, %fs)<%?if(%ss(0, 6, %fs), =, %fs)<%?if(%ss(0, 5, %fs), =, %fs)<%?if(%ss(0, 4, %fs), =, %fs)<%?if(%ss(0, 3, %fs), =, %fs)<%?if(%ss(0, 2, %fs), =, %fs)<%fsKB|0.%ss(0, 1, %fs)MB>|%ss(0, 1, %fs).%ss(1, 1, %fs)MB>|%ss(0, 2, %fs)MB>|%ss(0, 3, %fs)MB>|%ss(0, 1, %fs)GB>|%ss(0, 2, %fs)GB> %?fc<MP1|MP2|MP3|AIFF|WAV|OGG|FLAC|MPC|AC3|WV|ALAC|AAC|SHN|SID|ADX|NSF|SPX|SPC|APE|WMA|WMAPRO|MOD|SAP|COOK|AAC|AC3|ATRAC3|CMC|CM3|CMR|CMS|DMC|DLT|MPT|MPD|RMT|TMC|TM8|TM2|ATRAC3|SMAF|AU|VOX|W64|TRUAUD|WMAVOX|MPC|AAC-HE|AY|VTX|GBS|HES|SGC|VGM|KSS|OPUS|AAC|UNKNOWN?>;%t(8)%ac%?fv<~>%fbkbps;%t(8)%ac%fkkHz
-#
-# #__Hold
-# %Vl(hold,88,18,105,30,4)
-# %acLOCKED%Vs(invert)
-# #
-# #__Eq
-# %V(213,18,11,11,2)
-# %?St(eq enabled)<%xd(Q)|>
-# #
-# #__Shuffle
-# %V(203,18,22,11,2)
-# S%?ps<%xd(O,2)|%xd(O)>
-# #
-# #__Repeat
-# %V(203,33,22,11,2)
-# %?mm<R%xd(O)|R%xd(O,2)|R%xd(O,2)|R%xd(O,2)|A%xd(O,2)>
-# #
-# #__Battery/Vol Screen Selector
-# %?mv(3.5)<%Vd(volChange)|%?bp<%Vd(batCharge)|%Vd(bat)>>
-# #
-# #__Battery/Vol Text
-# %Vl(bat,-92,28,72,16,3)
-# %ac%t(8)%xd(P) %bl%%%Vs(invert);%ac%?if(%bt, =, -1)<%t(0)|%t(8)%xd(P)  %bt%Vs(invert)>
-# #
-# %Vl(batCharge,-92,28,72,16,3)
-# %ac%t(8)CHARGING%Vs(invert);%t(8)%ac%xd(P) %bl%%%Vs(invert)
-# #
-# %Vl(volChange,-92,28,72,16,3)
-# %acVOL %pv
-# #
-# #__Title/Album Indicator
-# %V(20,92,13,17,-)
-# %t(12)%xd(Aa);%t(12)%?id<%xd(Ab)|%xd(Aa)>
-# #
-
-
-
