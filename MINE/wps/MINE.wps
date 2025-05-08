@@ -12,20 +12,13 @@
 #
 #__Preload Fonts
 %Fl(2,20-digital7mono.fnt)
-%Fl(3,15-KodeMono-SemiBold.fnt)
-%Fl(4,22-KodeMono-SemiBold.fnt)
-%Fl(5,29-KodeMono-SemiBold.fnt)
-%Fl(6,07-LanaPixel.fnt)
-%Fl(7,10-Sazanami-Mincho.fnt)
-%Fl(8,10-Northern-Sans.fnt)
-%Fl(9,20-dot-digital-7.fnt)
+%Fl(3,20-dot-digital-7.fnt)
 #
 #
 #__Preload Images
 %xl(PBB,pb_back.bmp,0,0)
 %xl(PBD,pb_backdrop.bmp,0,0)
 %xl(PB,pb.bmp,0,0)
-%xl(PBK,playback_status.bmp,1,1,5)
 %xl(PM,peak_background.bmp)
 %xl(PF,peak_fill.bmp)
 %xl(SB,small_bar.bmp)
@@ -55,32 +48,32 @@
 #__Cover Art
 %Vl(withCover,67,186,9,9,-)
 %?mp<%t(2)%xd(STOP);%xd(STOPI)|%t(4)%xd(PLAY);%t(4)%xd(PLAYI)|%t(1)%xd(PAUSE);%xd(PAUSEI)>
-%Vl(withCover,62,4,196,196,6)
+%Vl(withCover,62,4,196,196,-)
 %?mp<%t(2)%Cd;%Cd|%t(4)%Cd;%t(4)%Cd|%t(1)%Cd;%Cd>
 
 # LEFT
-%V(28,15,29,185,6)
+%V(28,15,29,185,-)
 %pL(0,0,-,-,PM,backdrop,PF,vertical)
 
 # LEFT
-%V(28,0,29,18,9)
+%V(28,0,29,18,3)
 %acL
 
 #__Peak Meter Bars w/ cover
-%V(263,15,29,185,6)
+%V(263,15,29,185,-)
 %pR(0,0,-,-,image,PM,backdrop,PF,vertical)
 
 # RIGHT
-%V(263,0,29,18,9)
+%V(263,0,29,18,3)
 %acR
 # %xd(LRBACK)
 
 #__Artist
-%V(62,200,196,32,9)
+%V(62,200,196,32,3)
 %al%s%?ia<%ia|UNKNOWN>
 #
 #__Track Title
-%V(62,217,196,16,9)
+%V(62,217,196,16,3)
 %al%s%?id<%t(12)%?it<%it|%fn>;%t(12)%id|%?it<%it|%fn>>
 
 #__Track Progress Bar Slider
@@ -118,7 +111,7 @@
 %pv(0,0,-,-,SB,vertical)
 %Vl(volNoChange,4,5,19,10,-)
 %xd(VOLSYM)
-%Vl(volChange,0,0,27,19,9)
+%Vl(volChange,0,0,27,19,3)
 %ac%pv
 
 #__Battery BAR and TEXT
