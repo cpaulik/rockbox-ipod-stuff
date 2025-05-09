@@ -2,8 +2,9 @@
 
 ### DOTTY theme
 
-Theme based SNAZZ3 by Vera B and on SPAZZ by CHUCK LARDO, SNAZZY by Phil Graves, SNAZZ2 by Jihoon Kim
-and inspired by OneBit theme from Ben Clayton
+Theme with a focus on album art inspired by OneBit theme from Ben Clayton and
+based on SNAZZ3 by Vera B and on SPAZZ by CHUCK LARDO, SNAZZY by Phil Graves,
+SNAZZ2 by Jihoon Kim
 
 <img src="DOTTY-wps.png" width="320"/>
 <img src="DOTTY-sbs.png" width="320"/>
